@@ -18,13 +18,13 @@
         let numChunks = Math.floor(l / sz);
         let arr = [];
         let revert = [];
-        let arrResult = []; // = str.split("");
+        let temp = [];
+        let arrResult = [];
         let j = 0;
 
         for (let i = 0, o = 0; i < numChunks; ++i, o += sz) {
           arr[i] = str.substr(o, sz);
         }
-        console.log(arr);
 
         let arrL = arr.length;
 
@@ -38,20 +38,21 @@
 
           if (sum % 2 === 0) {
             //reverse the chunk
+            varContainer.reverse();
+            //revert.push(varContainer);
+            //   for (let j = 0; j < varContainer.length - 1; j++) {
+            //  revert.push(varContainer[j]);
+            temp = varContainer.join("");
+            //    }
             console.log("reverse");
-            for (j = varContainer.length - 1; j <= 0; j--) {
-              revert.push(varContainer[j]);
-            }
-            console.log(revert);
-
-            console.log(arr);
+            console.log(temp);
           } else {
-            //arrResult.push(varContainer.join("")); //.reverse(); //.reverse()), join("");
-            //console.log(typeof arrResult);
-
             //rotate
             console.log("rotate");
           }
+          revert.push(temp);
+          console.log(revert);
+
           sum = 0;
         });
         console.log(arr);
