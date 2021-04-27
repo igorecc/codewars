@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function revrot(str, sz) {
+        // your code
+        if ((str === "") | (sz === 0) | (str.length < sz)) {
+          return "";
+        }
+        let l = str.length,
+          sum = 0;
+        let numChunks = Math.floor(l / sz);
+        let arr = [];
+        let revert = [];
+        let arrResult = []; // = str.split("");
+        let j = 0;
+
+        for (let i = 0, o = 0; i < numChunks; ++i, o += sz) {
+          arr[i] = str.substr(o, sz);
+        }
+        console.log(arr);
+
+        let arrL = arr.length;
+
+        arr.forEach(function (value, index) {
+          let varContainer = [];
+          varContainer = value.split("").map(Number);
+          varContainer.forEach(function (item) {
+            sum += item * item * item;
+          });
+          console.log(sum);
+
+          if (sum % 2 === 0) {
+            //reverse the chunk
+            console.log("reverse");
+            for (j = varContainer.length - 1; j <= 0; j--) {
+              revert.push(varContainer[j]);
+            }
+            console.log(revert);
+
+            console.log(arr);
+          } else {
+            //arrResult.push(varContainer.join("")); //.reverse(); //.reverse()), join("");
+            //console.log(typeof arrResult);
+
+            //rotate
+            console.log("rotate");
+          }
+          sum = 0;
+        });
+        console.log(arr);
+      }
+      console.log(revrot("222444444666668", 5));
+    </script>
+  </body>
+</html>
