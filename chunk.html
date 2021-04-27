@@ -21,7 +21,7 @@
       // revrot("66443875", 4) —> "44668753"
       // revrot("66443875", 8) —> "64438756"
       // revrot("664438769", 8) —> "67834466"
-      // revrot("123456779", 8) —> "23456771"
+      // revrot("123456779", 8) —> "2git 3456771"
       // revrot("", 8) —> ""
       // revrot("123456779", 0) —> ""
       // revrot("563000655734469485", 4) —> "0365065073456944"
@@ -40,6 +40,7 @@
         let result = [];
         let shifted = 0;
         //разбиваю строку на отдельные элементы массива по заданному sz
+        //['xxxx','xxxx','xxxx']
         for (let i = 0, o = 0; i < numChunks; ++i, o += sz) {
           arr[i] = str.substr(o, sz);
         }
@@ -47,6 +48,7 @@
         arr.forEach(function (value, index) {
           let varContainer = [];
           //varContainer - храню первый элемент массива разбитый на отдельные элементы для подсчета суммы кубов чисел
+          //[x1,x2,x3,x4]
           varContainer = value.split("").map(Number);
           varContainer.forEach(function (item) {
             sum += item * item * item;
